@@ -26,10 +26,19 @@ const userschema = new mongoose.Schema(
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
         "Please add a valid email",
       ],
+      required: [true, "Please enter a valid email"],
+      unique: true,
     },
     photoUrl: {
       type: String,
     },
+    event: [
+      {
+        type: mongoose.Schema.ObjectId,
+        ref: "Event",
+        required: true,
+      },
+    ],
     createdAt: {
       type: Date,
       default: Date.now,
@@ -40,5 +49,12 @@ const userschema = new mongoose.Schema(
     toObject: { virtuals: true },
   }
 );
+//Reverse populate with virtuals
+userschema.virtual("events", {
+  ref: "Events",
+  localField: "_id",
+  foreignField: "user",
+  justOne: false,
+});
 
 module.exports = mongoose.model("User", userschema);

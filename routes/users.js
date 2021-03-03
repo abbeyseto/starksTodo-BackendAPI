@@ -8,7 +8,7 @@ const {
 } = require("../controllers/users");
 
 const router = express.Router({ mergeParams: true });
-
+router.route("/users/:id").get(getusers);
 router.route("/").get(getusers).post(addUser);
 router.route("/:id").get(getUser).put(updateUser).delete(deleteUser);
 

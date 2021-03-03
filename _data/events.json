@@ -1,15 +1,17 @@
 [
   {
+    "_id": "603d9188fc8821221002c8a7",
+    "_user": "603d91475602de21fa5aa4b7",
+    "type": "Event",
     "summary": "Meeting with David",
     "location": "3595 California St, San Francisco, CA 94118",
     "description": "Meet with David to talk about the new client project and how to integrate the calendar for booking.",
-    "colorId": 1,
     "start": {
-      "dateTime": "2021-02-28T22:09:27.623Z",
+      "dateTime": "2021-03-06T22:09:27.623Z",
       "timeZone": "Africa/Lagos"
     },
     "end": {
-      "dateTime": "2021-02-28T22:09:27.623Z",
+      "dateTime": "2021-03-06T22:09:27.623Z",
       "timeZone": "Africa/Lagos"
     },
     "attendees": [

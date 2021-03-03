@@ -31,7 +31,7 @@ const users = JSON.parse(
 const importData = async () => {
   try {
     await Event.create(events);
-    // await User.create(users);
+    await User.create(users);
     console.log("Data imported...".green.inverse);
     process.exit();
   } catch (err) {

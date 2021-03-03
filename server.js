@@ -31,10 +31,11 @@ app.use("/api/v1/users", users);
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
-
+const HOST = process.env.HOST || "127.0.0.1";
 const server = app.listen(PORT, () => {
   console.log(
-    `App listening in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold
+    `App listening in ${process.env.NODE_ENV} mode on port ${PORT} and host ${HOST}`
+      .yellow.bold
   );
 });
 
