@@ -54,22 +54,28 @@ exports.getEvent = asyncHandler(async (req, res, next) => {
 //@access   Private
 exports.createEvent = asyncHandler(async (req, res, next) => {
   let body = req.body;
-  console.log(body);
   let clientId = body.auth.clientId;
   let refresh_token = body.auth.refreshToken;
   delete body.auth;
+  // console.log("1", body);
+
+  const newbody = Object.assign({}, body);
+
+  let eventResponse;
+
   if (req.body.type === "Event") {
-    googleCalendarApi(clientId, refresh_token, body);
+    // console.log("2", body);
+    eventResponse = googleCalendarApi(clientId, refresh_token, newbody);
+    if (eventResponse) console.log("from create event", eventResponse);
   }
 
-  // if (setCalendarEvent) {
-  const event = await Event.create(req.body);
+  // console.log("3", newbody);//*PERSONAL NOTE*??
+  const event = await Event.create(body);
   res.status(201).json({
     sucess: true,
     msg: `Created a Event`,
     data: event,
   });
-  // }
 });
 
 //@desc     Update a Event

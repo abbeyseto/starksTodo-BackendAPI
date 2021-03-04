@@ -20,8 +20,8 @@ const googleCalendarApi = (clientId, refresh_token, body) => {
   // eventEndTime.setDate(eventEndTime.getDay());
   eventEndTime.setMinutes(eventEndTime.getMinutes() + 45);
 
-  console.log(eventStartTime, eventEndTime);
-
+  // console.log(eventStartTime, eventEndTime);
+  let response = "Last last";
   let payload = body;
   payload["start"]["datetime"] = eventStartTime;
   payload["end"]["datetime"] = eventEndTime;
@@ -34,6 +34,7 @@ const googleCalendarApi = (clientId, refresh_token, body) => {
     delete payload.type;
     delete payload.date;
     delete payload.time;
+    // console.log("Innerrrr.....", payload);
     calendar.freebusy.query(
       {
         resource: {
@@ -60,14 +61,14 @@ const googleCalendarApi = (clientId, refresh_token, body) => {
               if (err)
                 return console.error("Error Creating Calender Event:", err);
               // Else log that the event was created.
-              return console.log("Calendar event successfully created.");
+              response = "true";
+              return response;
             }
           );
 
         // If event array is not empty log that we are busy.
-        return console.log(
-          `Sorry, There is already an event for this time slot, choose another time slot`
-        );
+        response = "false";
+        return response;
       }
     );
   };
