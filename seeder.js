@@ -56,3 +56,10 @@ if (process.argv[2] === "-i") {
 } else if (process.argv[2] === "-d") {
   deleteData();
 }
+
+//to delete all dummy data run
+//node seeder.js -d
+//
+//to add all dummy data run
+//node seeder.js -i
+//
