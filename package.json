@@ -4,7 +4,7 @@
   "description": "Devcamper Backend API",
   "main": "server.js",
   "scripts": {
-    "start": "NODE_ENV=production node server",
+    "start": "pm2-runtime start ecosystem.config.js --env production pm2 link kyaibp2m715gdv2 hd4chuhqc2ypdhi",
     "dev": "nodemon server"
   },
   "author": "Adenle Abiodun",
