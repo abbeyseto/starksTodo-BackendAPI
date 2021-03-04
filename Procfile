@@ -1,1 +1,1 @@
-web: pm2 start app.js && pm2 logs all && pm2 link kyaibp2m715gdv2 hd4chuhqc2ypdhi
+web: pm2 start server.js && pm2 logs all && pm2 link kyaibp2m715gdv2 hd4chuhqc2ypdhi
