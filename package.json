@@ -4,7 +4,8 @@
   "description": "Devcamper Backend API",
   "main": "server.js",
   "scripts": {
-    "start": "pm2 start ecosystem.config.js --env production pm2 link kyaibp2m715gdv2 hd4chuhqc2ypdhi",
+    "preinstall": "npm i -g pm2 && pm2 install pm2-logrotate",
+    "start": "node .",
     "dev": "nodemon server"
   },
   "author": "Adenle Abiodun",
