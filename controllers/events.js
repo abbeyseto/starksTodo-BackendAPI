@@ -54,11 +54,12 @@ exports.getEvent = asyncHandler(async (req, res, next) => {
 //@access   Private
 exports.createEvent = asyncHandler(async (req, res, next) => {
   let body = req.body;
+  console.log(body);
   let clientId = body.auth.clientId;
   let refresh_token = body.auth.refreshToken;
   delete body.auth;
   if (req.body.type === "Event") {
-    await googleCalendarApi(clientId, refresh_token, body);
+    googleCalendarApi(clientId, refresh_token, body);
   }
 
   // if (setCalendarEvent) {
